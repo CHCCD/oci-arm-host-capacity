@@ -24,11 +24,6 @@ jobs:
           printf '%s\n' "${{ secrets.OCI_PRIVATE_KEY }}" > /tmp/oci_private_key.pem
           chmod 600 /tmp/oci_private_key.pem
 
-      - name: Check private key
-        run: |
-          cat /tmp/oci_private_key.pem | head -3
-          wc -l /tmp/oci_private_key.pem
-
       - name: Create OCI instance
         env:
           OCI_REGION: ${{ secrets.OCI_REGION }}
